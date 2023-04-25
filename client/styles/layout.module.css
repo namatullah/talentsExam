@@ -1,0 +1,19 @@
+.projectTitle {
+    margin-right: 2px;
+    padding-top: 2px;
+    font-family: monospace;
+    font-weight: 900;
+    color: inherit;
+    text-decoration: none;
+    letter-spacing: 0.4rem !important;
+}
+
+.spaceBetween {
+    display: flex;
+    justify-content: space-between;
+}
+.signIn{
+    color: #fff;
+    text-decoration: none;
+    margin: 0px 4px;
+}

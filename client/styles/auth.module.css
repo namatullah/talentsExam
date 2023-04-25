@@ -1,0 +1,28 @@
+.paper {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px;
+}
+
+.avatar {
+    margin: 10px;
+}
+
+.form {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.submit {
+    margin: 20px 0px !important;
+}
+
+.fileInput {
+    width: 100%;
+}
+
+.fileDiv {
+    margin: 20px 0 2px 0;
+}
