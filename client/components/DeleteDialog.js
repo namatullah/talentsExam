@@ -6,16 +6,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-const DeleteDialog = ({
-    id,
-    openDelete,
-    setOpenDelete,
-    handleDelete,
-    title,
-    description = null,
-}) => {
+const DeleteDialog = ({ id, openDelete, setOpenDelete, handleDelete, title, description = null }) => {
     const onDelete = async () => {
-        const {data} = await handleDelete(id);
+        const { data } = await handleDelete(id);
         handleCloseDelete();
     };
     const handleCloseDelete = () => {
@@ -32,26 +25,13 @@ const DeleteDialog = ({
         >
             <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
             <DialogContent>
-                {description && (
-                    <DialogContentText id="alert-dialog-description">
-                        {description}
-                    </DialogContentText>
-                )}
+                {description && <DialogContentText id="alert-dialog-description">{description}</DialogContentText>}
             </DialogContent>
             <DialogActions style={{ padding: '0 25px 20px 20px' }}>
-                <Button
-                    variant="contained"
-                    size="small"
-                    color="error"
-                    onClick={onDelete}
-                >
+                <Button variant="contained" size="small" color="error" onClick={onDelete}>
                     yes
                 </Button>
-                <Button
-                    variant="contained"
-                    size="small"
-                    onClick={handleCloseDelete}
-                >
+                <Button variant="contained" size="small" onClick={handleCloseDelete}>
                     no
                 </Button>
             </DialogActions>

@@ -1,30 +1,28 @@
 import React, { useState } from 'react';
-import {
-    Button,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogTitle,
-    TextField,
-} from '@mui/material';
-import { addSubCategory } from '../../../hooks/category';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
+import { addSubCategory, updateSubCategory } from '../../../hooks/category';
 
 const Form = ({ open, closeForm, category }) => {
-    const [name, setName] = useState('');
+    const [name, setName] = useState(category?.name ?? '');
     const [error, setError] = useState(false);
     const [errorText, setErrorText] = useState('');
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!name) {
             setError(true);
             setErrorText('This field is required');
         } else {
-            addSubCategory({ name, id: category.id })
-                .then((res) => console.log(res.data.message))
-                .catch((error) => console.log(error));
+            if (category) {
+                console.log(name);
+                const res = await updateSubCategory(category.id, { name: name });
+                console.log(res);
+            } else {
+                await addSubCategory({ name, id: category.id })
+                    .then((res) => console.log(res.data.message))
+                    .catch((error) => console.log(error));
+            }
+            handleCancel();
         }
-        handleCancel();
     };
 
     const handleCancel = () => {
@@ -55,12 +53,7 @@ const Form = ({ open, closeForm, category }) => {
                     <Button variant="contained" size="small" type="submit">
                         Add
                     </Button>
-                    <Button
-                        variant="contained"
-                        size="small"
-                        color="error"
-                        onClick={handleCancel}
-                    >
+                    <Button variant="contained" size="small" color="error" onClick={handleCancel}>
                         Cancel
                     </Button>
                 </DialogActions>

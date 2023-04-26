@@ -1,12 +1,5 @@
 import { LockOutlined } from '@mui/icons-material';
-import {
-    Avatar,
-    Button,
-    Container,
-    Grid,
-    Paper,
-    Typography,
-} from '@mui/material';
+import { Avatar, Button, Container, Grid, Paper, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 const initialState = {
@@ -28,8 +21,7 @@ const Login = () => {
 
     // const { login, isLoading, user } = useAuth({ middleware: 'guest' });
 
-    const handleShowPassword = () =>
-        setShowPasswrod((showPassword) => !showPassword);
+    const handleShowPassword = () => setShowPasswrod((showPassword) => !showPassword);
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -48,7 +40,6 @@ const Login = () => {
                     }
                 });
         });
-
     };
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -65,12 +56,7 @@ const Login = () => {
 
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <Grid container spacing={2}>
-                        <Input
-                            name="email"
-                            label="Email address"
-                            handleChange={handleChange}
-                            type="email"
-                        />
+                        <Input name="email" label="Email address" handleChange={handleChange} type="email" />
                         <Input
                             name="password"
                             label="Password"
@@ -79,21 +65,13 @@ const Login = () => {
                             handleShowPassword={handleShowPassword}
                         />
                     </Grid>
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={styles.submit}
-                    >
+                    <Button type="submit" fullWidth variant="contained" color="primary" className={styles.submit}>
                         Sign In
                     </Button>
                     <Grid container justifyContent="flex-end">
                         <Grid item>
                             <Button>
-                                <Link href="/auth/register">
-                                    Don't have an acount? Sign Up
-                                </Link>
+                                <Link href="/auth/register">Don't have an acount? Sign Up</Link>
                             </Button>
                         </Grid>
                     </Grid>

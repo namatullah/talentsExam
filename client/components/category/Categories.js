@@ -1,4 +1,4 @@
-import { Grid, TableCell, TableRow, Tooltip, Typography } from '@mui/material';
+import { TableCell, TableRow, Tooltip } from '@mui/material';
 import { useState } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -27,26 +27,16 @@ const Categories = ({ category, index }) => {
     return (
         <>
             {openSubList && (
-                <SubCategories
-                    category={category}
-                    openSubList={openSubList}
-                    setOpenSubList={setOpenSubList}
-                />
+                <SubCategories category={category} openSubList={openSubList} setOpenSubList={setOpenSubList} />
             )}
-            {open && (
-                <Form open={open} closeForm={closeForm} category={category} />
-            )}
+            {open && <Form open={open} closeForm={closeForm} category={category} />}
             {openDelete && (
                 <DeleteDialog
                     id={category.id}
                     openDelete={openDelete}
                     setOpenDelete={setOpenDelete}
                     handleDelete={deleteCategory}
-                    title={
-                        'Are you sure to delete (' +
-                        category.name +
-                        ') category ?'
-                    }
+                    title={'Are you sure to delete (' + category.name + ') category ?'}
                     description="Note: after deletion all sub categories and related question will be lost."
                 />
             )}

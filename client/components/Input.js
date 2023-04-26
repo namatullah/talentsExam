@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, InputAdornment, TextField, IconButton } from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { Grid, InputAdornment, TextField, IconButton } from '@mui/material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 const Input = ({ name, half, handleChange, label, autoFocus, type, handleShowPassword }) => (
     <Grid item xs={12} sm={half ? 6 : 12}>
@@ -13,15 +13,19 @@ const Input = ({ name, half, handleChange, label, autoFocus, type, handleShowPas
             label={label}
             autoFocus={autoFocus}
             type={type}
-            InputProps={name === 'password' ? {
-                endAdornment: (
-                    <InputAdornment position='end'>
-                        <IconButton onClick={handleShowPassword}>
-                            {type === 'password' ? <Visibility /> : <VisibilityOff />}
-                        </IconButton>
-                    </InputAdornment>
-                )
-            } : null}
+            InputProps={
+                name === 'password'
+                    ? {
+                          endAdornment: (
+                              <InputAdornment position="end">
+                                  <IconButton onClick={handleShowPassword}>
+                                      {type === 'password' ? <Visibility /> : <VisibilityOff />}
+                                  </IconButton>
+                              </InputAdornment>
+                          ),
+                      }
+                    : null
+            }
         />
     </Grid>
 );

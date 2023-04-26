@@ -1,14 +1,4 @@
-import {
-    Alert,
-    Paper,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    Tooltip,
-} from '@mui/material';
+import { Alert, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Tooltip } from '@mui/material';
 import { useState } from 'react';
 import MainLayout from '../components/layouts/MainLayout';
 import { getQuestions } from '../hooks/question';
@@ -48,70 +38,32 @@ const Question = ({ questions, categories }) => {
     return (
         <>
             {openView && <View setOpenView={setOpenView} question={question} />}
-            {open && (
-                <Form
-                    open={open}
-                    closeForm={closeForm}
-                    categories={categories}
-                />
-            )}
-            {openDelete && (
-                <Delete
-                    openDelete={openDelete}
-                    handleCloseDelete={handleCloseDelete}
-                    question={question}
-                />
-            )}
+            {open && <Form open={open} closeForm={closeForm} categories={categories} />}
+            {openDelete && <Delete openDelete={openDelete} handleCloseDelete={handleCloseDelete} question={question} />}
             <TableContainer component={Paper} raised="true" elevation={6}>
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell
-                                colSpan={5}
-                                style={{ fontWeight: 'bold' }}
-                                align="left"
-                            >
-                                <Tooltip
-                                    title="Add a new Question"
-                                    arrow
-                                    placement="left"
-                                >
-                                    <AddIcon
-                                        color="primary"
-                                        onClick={() => setOpen(true)}
-                                    />
+                            <TableCell colSpan={5} style={{ fontWeight: 'bold' }} align="left">
+                                <Tooltip title="Add a new Question" arrow placement="left">
+                                    <AddIcon color="primary" onClick={() => setOpen(true)} />
                                 </Tooltip>
                             </TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell
-                                style={{ fontWeight: 'bold' }}
-                                align="left"
-                            >
+                            <TableCell style={{ fontWeight: 'bold' }} align="left">
                                 #
                             </TableCell>
-                            <TableCell
-                                style={{ fontWeight: 'bold' }}
-                                align="left"
-                            >
+                            <TableCell style={{ fontWeight: 'bold' }} align="left">
                                 Category
                             </TableCell>
-                            <TableCell
-                                style={{ fontWeight: 'bold' }}
-                                align="left"
-                            >
+                            <TableCell style={{ fontWeight: 'bold' }} align="left">
                                 Sub Category
                             </TableCell>
-                            <TableCell
-                                style={{ fontWeight: 'bold' }}
-                                align="left"
-                            >
+                            <TableCell style={{ fontWeight: 'bold' }} align="left">
                                 Question
                             </TableCell>
-                            <TableCell
-                                style={{ fontWeight: 'bold' }}
-                                align="left"
-                            >
+                            <TableCell style={{ fontWeight: 'bold' }} align="left">
                                 Actions
                             </TableCell>
                         </TableRow>
@@ -120,59 +72,35 @@ const Question = ({ questions, categories }) => {
                         {questions.questions.length > 0 ? (
                             questions.questions.map((question, index) => (
                                 <TableRow key={question.id}>
-                                    <TableCell align="left">
-                                        {index + 1}
-                                    </TableCell>
-                                    <TableCell align="left">
-                                        {question.category}
-                                    </TableCell>
-                                    <TableCell align="left">
-                                        {question.subCategory}
-                                    </TableCell>
+                                    <TableCell align="left">{index + 1}</TableCell>
+                                    <TableCell align="left">{question.category}</TableCell>
+                                    <TableCell align="left">{question.subCategory}</TableCell>
                                     <TableCell align="left" width="50%">
                                         {question.question}
                                     </TableCell>
                                     <TableCell align="left">
-                                        <Tooltip
-                                            title="View Question detail"
-                                            arrow
-                                            placement="top"
-                                        >
+                                        <Tooltip title="View Question detail" arrow placement="top">
                                             <SearchIcon
                                                 color="primary"
                                                 fontSize="small"
                                                 sx={{ mr: 1 }}
-                                                onClick={() =>
-                                                    handleOpenView(question)
-                                                }
+                                                onClick={() => handleOpenView(question)}
                                             />
                                         </Tooltip>
-                                        <Tooltip
-                                            title="Edit Question detail"
-                                            arrow
-                                            placement="top"
-                                        >
+                                        <Tooltip title="Edit Question detail" arrow placement="top">
                                             <EditIcon
                                                 color="primary"
                                                 fontSize="small"
                                                 sx={{ mr: 1 }}
-                                                onClick={() =>
-                                                    handleEdit(question)
-                                                }
+                                                onClick={() => handleEdit(question)}
                                             />
                                         </Tooltip>
-                                        <Tooltip
-                                            title="Delete question"
-                                            arrow
-                                            placement="top"
-                                        >
+                                        <Tooltip title="Delete question" arrow placement="top">
                                             <DeleteIcon
                                                 color="error"
                                                 fontSize="small"
                                                 sx={{ mr: 1 }}
-                                                onClick={() =>
-                                                    handleOpenDelete(question)
-                                                }
+                                                onClick={() => handleOpenDelete(question)}
                                             />
                                         </Tooltip>
                                     </TableCell>
@@ -181,9 +109,7 @@ const Question = ({ questions, categories }) => {
                         ) : (
                             <TableRow>
                                 <TableCell colSpan={4}>
-                                    <Alert severity="info">
-                                        No data inserted
-                                    </Alert>
+                                    <Alert severity="info">No data inserted</Alert>
                                 </TableCell>
                             </TableRow>
                         )}

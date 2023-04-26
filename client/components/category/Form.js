@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-import {
-    Button,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogTitle,
-    TextField,
-} from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
 import { addCategory, updateCategory } from '../../hooks/category';
 
 const Form = ({ open, closeForm, category = null }) => {
@@ -23,7 +16,7 @@ const Form = ({ open, closeForm, category = null }) => {
             if (category) {
                 console.log(name);
                 const res = await updateCategory(category.id, { name: name });
-                console.log(res)
+                console.log(res);
             } else {
                 await addCategory({ name })
                     .then((res) => console.log(res))
@@ -59,12 +52,7 @@ const Form = ({ open, closeForm, category = null }) => {
                     <Button variant="contained" size="small" type="submit">
                         Add
                     </Button>
-                    <Button
-                        variant="contained"
-                        size="small"
-                        color="error"
-                        onClick={handleCancel}
-                    >
+                    <Button variant="contained" size="small" color="error" onClick={handleCancel}>
                         Cancel
                     </Button>
                 </DialogActions>
