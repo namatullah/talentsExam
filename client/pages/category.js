@@ -65,7 +65,7 @@ const Category = ({ categories }) => {
                                 style={{ fontWeight: 'bold' }}
                                 align="left"
                             >
-                                Sub Category
+                                Actions
                             </TableCell>
                         </TableRow>
                     </TableHead>
