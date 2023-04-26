@@ -11,6 +11,7 @@ const Categories = ({ category, index }) => {
     const [open, setOpen] = useState(false);
     const [openDelete, setOpenDelete] = useState(false);
     const [test, setTest] = useState(false);
+    const [test1, setTest1] = useState(false);
 
     const handleEdit = () => {
         setOpen(true);
