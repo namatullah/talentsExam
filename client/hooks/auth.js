@@ -45,12 +45,12 @@ export const useAuth = ({ middleware } = {}) => {
 
     useEffect(() => {
         if (user || error) {
-            setIsLoading(false)
+            setIsLoading(false);
         }
 
-        if (middleware == "guest" && user) router.push("/");
-        if (middleware == "auth" && error) router.push("/login");
-    }, [])
+        if (middleware == 'guest' && user) router.push('/');
+        if (middleware == 'auth' && error) router.push('/login');
+    }, []);
 
     return {
         user,

@@ -30,6 +30,7 @@ Route::post('/category/add', [CategoryController::class, 'store']);
 Route::post('/category/delete/{id}', [CategoryController::class, 'destroy']);
 
 Route::post('/subCategory/add', [SubCategoryController::class, 'store']);
+Route::put('/subCategory/update/{id}', [SubCategoryController::class, 'update']);
 Route::delete('/subCategory/delete/{id}', [SubCategoryController::class, 'destroy']);
 // Route::get('/user', [AuthController::class, 'me']);
 

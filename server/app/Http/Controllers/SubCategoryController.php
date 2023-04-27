@@ -62,7 +62,14 @@ class SubCategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $category = SubCategory::find($id);
+        $category->name = $request->input('name');
+        $category->update();
+        return response()->json([
+            'status' => 200,
+            'category' => $category,
+            'message' => 'Category successfully updated.'
+        ]);
     }
 
     /**

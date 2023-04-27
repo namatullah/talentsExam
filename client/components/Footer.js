@@ -6,7 +6,7 @@ const Footer = () => {
                 <span>Mozzie</span>
             </h1>
         </footer>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;

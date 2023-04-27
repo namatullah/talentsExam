@@ -11,7 +11,7 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import Typography from '@mui/material/Typography';
 import Link from 'next/link';
-import styles from '../../styles/layout.module.css'
+import styles from '../../styles/layout.module.css';
 import { useAuth } from '../../hooks/auth';
 
 const AccountMenu = () => {
@@ -31,11 +31,7 @@ const AccountMenu = () => {
         setAnchorEl(null);
     };
     return !user ? (
-        <Link
-            href="/auth/register"
-            passHref
-            className={styles.signIn}
-        >
+        <Link href="/auth/register" passHref className={styles.signIn}>
             Sign In
         </Link>
     ) : (
@@ -64,11 +60,7 @@ const AccountMenu = () => {
                     >
                         Namatullah Shahbazi
                     </Typography>
-                    <Avatar
-                        sx={{ width: 32, height: 32 }}
-                        alt="Namatullah"
-                        src={''}
-                    >
+                    <Avatar sx={{ width: 32, height: 32 }} alt="Namatullah" src={''}>
                         {'Namatullah'.charAt(0)}
                     </Avatar>
                 </IconButton>

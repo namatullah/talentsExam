@@ -1,22 +1,11 @@
 import React, { useState } from 'react';
-import {
-    Button,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogTitle,
-    MenuItem,
-    Select,
-    TextField,
-} from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, MenuItem, Select, TextField } from '@mui/material';
 import { addQuestion } from '../../hooks/question';
 
 const Form = ({ open, closeForm, categories }) => {
     const [category, setCategory] = useState('');
 
-    const { sub_categories } = categories.categories.find(
-        (cate) => cate.id === category
-    ) ?? { sub_categories: null };
+    const { sub_categories } = categories.categories.find((cate) => cate.id === category) ?? { sub_categories: null };
     const [subCategory, setSubCategory] = useState('');
     const [question, setQuestion] = useState('');
 
@@ -35,17 +24,17 @@ const Form = ({ open, closeForm, categories }) => {
         e.preventDefault();
         console.log(category, subCategory, question);
         if (!category) {
-        console.log('here');
+            console.log('here');
 
             setErrors({ category: true });
             setErrorTexts({ category: 'This field is required' });
         } else if (!subCategory) {
-        console.log('here2');
+            console.log('here2');
 
             setErrors({ subCategory: true });
             setErrorTexts({ subCategory: 'This field is required' });
         } else if (!question) {
-        console.log('here3');
+            console.log('here3');
 
             setErrors({ question: true });
             setErrorTexts({ question: 'This field is required' });
@@ -126,12 +115,7 @@ const Form = ({ open, closeForm, categories }) => {
                     <Button variant="contained" size="small" type="submit">
                         Add
                     </Button>
-                    <Button
-                        variant="contained"
-                        size="small"
-                        color="error"
-                        onClick={handleCancel}
-                    >
+                    <Button variant="contained" size="small" color="error" onClick={handleCancel}>
                         Cancel
                     </Button>
                 </DialogActions>

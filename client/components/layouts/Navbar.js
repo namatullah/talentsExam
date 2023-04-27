@@ -1,18 +1,18 @@
-import React from 'react'
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import Typography from "@mui/material/Typography";
-import {styled} from "@mui/material/styles";
-import MuiAppBar from "@mui/material/AppBar";
+import React from 'react';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import Typography from '@mui/material/Typography';
+import { styled } from '@mui/material/styles';
+import MuiAppBar from '@mui/material/AppBar';
 import AccountMenu from './AccountMenu';
-import styles from '../../styles/layout.module.css'
+import styles from '../../styles/layout.module.css';
 
 const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
-})(({theme, open}) => ({
+})(({ theme, open }) => ({
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
@@ -27,11 +27,11 @@ const AppBar = styled(MuiAppBar, {
         }),
     }),
 }));
-const Navbar = ({handleDrawerOpen, open}) => {
+const Navbar = ({ handleDrawerOpen, open }) => {
     return (
         <AppBar position="fixed" open={open}>
             <Toolbar className={styles.spaceBetween}>
-                <div style={{display:'flex'}}>
+                <div style={{ display: 'flex' }}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -39,23 +39,18 @@ const Navbar = ({handleDrawerOpen, open}) => {
                         edge="start"
                         sx={{
                             marginRight: 5,
-                            ...(open && {display: 'none'}),
+                            ...(open && { display: 'none' }),
                         }}
                     >
-                        <MenuIcon/>
+                        <MenuIcon />
                     </IconButton>
-                    <Typography
-                        className={styles.projectTitle}
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="/">
+                    <Typography className={styles.projectTitle} variant="h6" noWrap component="a" href="/">
                         Talents Exam
                     </Typography>
                 </div>
                 <AccountMenu />
             </Toolbar>
         </AppBar>
-    )
-}
-export default Navbar
+    );
+};
+export default Navbar;

@@ -90,20 +90,10 @@ const Sidebar = ({ handleDrawerClose, open }) => {
     ];
     return (
         <Drawer variant="permanent" open={open}>
-            <DrawerHeader
-                style={{ justifyContent: 'space-between', display: 'flex' }}
-            >
-                <PsychologyIcon
-                    fontSize="large"
-                    sx={{ ml: 1 }}
-                    color="primary"
-                />
+            <DrawerHeader style={{ justifyContent: 'space-between', display: 'flex' }}>
+                <PsychologyIcon fontSize="large" sx={{ ml: 1 }} color="primary" />
                 <IconButton onClick={handleDrawerClose}>
-                    {theme.direction === 'rtl' ? (
-                        <ChevronRightIcon />
-                    ) : (
-                        <ChevronLeftIcon />
-                    )}
+                    {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                 </IconButton>
             </DrawerHeader>
             <Divider />
@@ -134,10 +124,7 @@ const Sidebar = ({ handleDrawerClose, open }) => {
                             >
                                 {item.icon}
                             </ListItemIcon>
-                            <ListItemText
-                                primary={item.name}
-                                sx={{ opacity: open ? 1 : 0 }}
-                            />
+                            <ListItemText primary={item.name} sx={{ opacity: open ? 1 : 0 }} />
                         </ListItemButton>
                     </Link>
                 ))}
@@ -168,10 +155,7 @@ const Sidebar = ({ handleDrawerClose, open }) => {
                             >
                                 {item.icon}
                             </ListItemIcon>
-                            <ListItemText
-                                primary={item.name}
-                                sx={{ opacity: open ? 1 : 0 }}
-                            />
+                            <ListItemText primary={item.name} sx={{ opacity: open ? 1 : 0 }} />
                         </ListItemButton>
                     </Link>
                 ))}

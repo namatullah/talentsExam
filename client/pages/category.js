@@ -1,14 +1,4 @@
-import {
-    Alert,
-    Paper,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    Tooltip,
-} from '@mui/material';
+import { Alert, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Tooltip } from '@mui/material';
 import { useState } from 'react';
 import MainLayout from '../components/layouts/MainLayout';
 import AddIcon from '@mui/icons-material/Add';
@@ -31,52 +21,28 @@ const Category = ({ categories }) => {
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell
-                                colSpan={5}
-                                style={{ fontWeight: 'bold' }}
-                                align="left"
-                            >
-                                <Tooltip
-                                    title="Add a new category"
-                                    arrow
-                                    placement="left"
-                                >
-                                    <AddIcon
-                                        color="primary"
-                                        onClick={() => setOpen(true)}
-                                    />
+                            <TableCell colSpan={5} style={{ fontWeight: 'bold' }} align="left">
+                                <Tooltip title="Add a new category" arrow placement="left">
+                                    <AddIcon color="primary" onClick={() => setOpen(true)} />
                                 </Tooltip>
                             </TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell
-                                style={{ fontWeight: 'bold' }}
-                                align="left"
-                            >
+                            <TableCell style={{ fontWeight: 'bold' }} align="left">
                                 #
                             </TableCell>
-                            <TableCell
-                                style={{ fontWeight: 'bold' }}
-                                align="left"
-                            >
+                            <TableCell style={{ fontWeight: 'bold' }} align="left">
                                 Category
                             </TableCell>
-                            <TableCell
-                                style={{ fontWeight: 'bold' }}
-                                align="left"
-                            >
-                                Sub Category
+                            <TableCell style={{ fontWeight: 'bold' }} align="left">
+                                Actions
                             </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {categories.categories.length > 0 ? (
                             categories.categories.map((category, index) => (
-                                <Categories
-                                    category={category}
-                                    index={index}
-                                    key={category.id}
-                                />
+                                <Categories category={category} index={index} key={category.id} />
                             ))
                         ) : (
                             <TableRow>
@@ -98,7 +64,7 @@ export async function getStaticProps({ req }) {
         props: {
             categories: data,
         },
-        revalidate:10,
+        revalidate: 10,
     };
 }
 
