@@ -71,8 +71,8 @@ const Sidebar = ({ handleDrawerClose, open }) => {
             icon: <LocalLibraryIcon />,
         },
         {
-            path: '/question',
-            name: 'Question',
+            path: '/questions',
+            name: 'Questions',
             icon: <LocalLibraryIcon />,
         },
         {

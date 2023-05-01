@@ -14,7 +14,7 @@ export const useAuth = ({ middleware } = {}) => {
         error,
         mutate,
     } = useSWR('/user', () =>
-        API.get('/user')
+        API.get('user')
             .then((response) => response.data.data)
             .catch((error) => {
                 if (error.response.status !== 409) throw error;
@@ -28,7 +28,7 @@ export const useAuth = ({ middleware } = {}) => {
     const login = async ({ setErrors, ...props }) => {
         setErrors([]);
         await csrf();
-        API.post('/login', props)
+        API.post('login', props)
             .then(() => mutate() && router.push('/dashboard'))
             .catch((error) => {
                 if (error.response.status != 422) throw error;
@@ -38,7 +38,7 @@ export const useAuth = ({ middleware } = {}) => {
 
     // Logout
     const logout = async () => {
-        await API.post('/logout');
+        await API.post('logout');
         mutate(null);
         router.push('/');
     };
